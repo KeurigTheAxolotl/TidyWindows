@@ -119,7 +119,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	wndClass.hIcon = LoadIcon(0, IDI_APPLICATION);
 	wndClass.hCursor = LoadCursor(0, IDC_ARROW);
 	wndClass.hbrBackground = reinterpret_cast<HBRUSH>(COLOR_WINDOW);
-	wndClass.lpszMenuName = NULL;
+	wndClass.lpszMenuName = 0;
 	wndClass.lpszClassName = clsName;
 	wndClass.hIconSm = LoadIcon(0, IDI_APPLICATION);
 	wndClass.cbSize = sizeof(WNDCLASSEX);
@@ -141,13 +141,13 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		10,
 		250,
 		150,
-		NULL,
-		NULL,
+		nullptr,
+		nullptr,
 		hInstance,
-		NULL
+		nullptr
 	);
 
-	if (hwnd == NULL)
+	if (hwnd == nullptr)
 	{
 		DWORD error = GetLastError();
 		std::string eMsg = "Error code " + std::to_string(error); // TODO: Get the error text.
@@ -162,7 +162,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	MSG msg = {0};
 
-	while (GetMessage(&msg, NULL, 0, 0) != 0)
+	while (GetMessage(&msg, nullptr, 0, 0) != 0)
 	{
 		TranslateMessage(&msg);
 		DispatchMessage(&msg);
